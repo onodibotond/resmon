@@ -8,8 +8,13 @@ cp -f src/*.py /opt/resmon/
 cp -f src/startup/resmon.sh /opt/resmon/startup/
 cp -f conf/* /etc/resmon/
 
-cp -f resmon /etc/init.d/resmon
-chmod +x /etc/init.d/resmon
-update-rc.d resmon defaults
+##init.d version
+#cp -f resmon /etc/init.d/resmon
+#chmod +x /etc/init.d/resmon
+#update-rc.d resmon defaults
+#/etc/init.d/resmon start
 
-/etc/init.d/resmon start
+#systemd verson
+cp resmon.service /etc/systemd/system/resmon.service
+systemctl enable resmon.service
+systemctl start resmon.service
