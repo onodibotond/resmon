@@ -1,4 +1,6 @@
 #!/bin/bash
+#This is the install script
+#It has to be executed as root user 
 
 mkdir -p /etc/resmon/
 mkdir -p /opt/resmon/archives/
