@@ -1,3 +1,5 @@
+#This script is used to load the config values
+
 from configparser import ConfigParser
 import math
 
