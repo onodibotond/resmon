@@ -1,0 +1,6 @@
+[Unit]
+Description=ResMon
+
+[Service]
+ExecStart=/opt/resmon/startup/resmon.sh
+Restart=always
