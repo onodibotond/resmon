@@ -19,7 +19,7 @@ def make_tarfile(output_filename, source_dir):
             logging.info("Creating archive {0}".format(output_filename))
             with tarfile.open(output_filename, "w:gz") as tar:
                 tar.add(source_dir, arcname=os.path.basename(source_dir))
-    except Exception:
+    except FileNotFoundError:
         logging.exception("Can't archive folder!")
 
 #This function is used to gather the memory usage in percent
