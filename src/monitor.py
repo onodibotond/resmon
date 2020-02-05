@@ -70,7 +70,6 @@ def run():
                             logging.warning(config.WARNING_MESSAGE.format(p['name'], p['pid'], p['memory_percent'], p['username'], command))
                             make_tarfile("/opt/resmon/archives/{0}.tar.gz".format(p['pid']), "/proc/{0}".format(p['pid']))
                             OCCURENCE = 0
-                            logging.debug("OCCURENCE: {0}, ALREADY_OCCURED: {1}".format(OCCURENCE, ALREADY_OCCURED))
                 else:
                     OCCURENCE += 1
             else:
