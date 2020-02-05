@@ -5,10 +5,10 @@ import os
 class TestStringMethods(unittest.TestCase): 
     
     def test_process_monitor(self): 
-        self.assertBetween(monitor.get_ram_percent(), 0, 100) 
+        self.assertTrue(0 >= monitor.get_ram_percent() and monitor.get_ram_percent() <= 100) 
   
     def test_make_tarfile_exception(self):         
-        self.assertRaises(monitor.make_tarfile("/inexistent/path/to/test/test.tar.gz", "/inexistent/path/to/test"), FileNotFoundError)
+        self.assertRaises(FileNotFoundError, monitor.make_tarfile("/inexistent/path/to/test/test.tar.gz", "/inexistent/path/to/test"))
   
     def test_make_tarfile(self):
         test_path = '/tmp/test_resmon'
@@ -23,8 +23,8 @@ class TestStringMethods(unittest.TestCase):
         test_file = '/tmp/test_resmon/test.tar.gz'
         os.mkdir(test_path)
         monitor.make_tarfile(test_file, test_path)
-        monitor.clean_old_files(0, 0, test_file)
-        self.assertTrue(os.path.exists(test_file))
+        monitor.clean_old_files(0, 0, test_path)
+        self.assertFalse(os.path.exists(test_file))
         os.rmdir(test_path)
         
   
