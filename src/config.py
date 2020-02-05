@@ -13,4 +13,4 @@ MIN_MEMORY = parser.getint('app_config', 'min_memory_to_be_sampled')
 MAX_OCCURENCE = math.ceil(parser.getint('app_config', 'min_sample_period') / TIMEOUT)
 
 SECONDS_PER_DAY = 86400
-WARNING_MESSAGE = "The process {0} with PID: {1} uses {2}% memory, is executed by {3} with the initial command: {4} \nMore info at /opt/resmon/archives/{0}.tar.gz"
+WARNING_MESSAGE = "The process {0} with PID: {1} uses {2}% memory, is executed by {3} with the initial command: {4} \nMore info at /opt/resmon/archives/{1}.tar.gz"
