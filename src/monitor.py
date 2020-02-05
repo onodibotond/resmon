@@ -71,7 +71,7 @@ def run():
                     for p in get_procs_by_usage():
                         if p['memory_percent'] > config.MIN_MEMORY:
                             command = ' '.join(psutil.Process(p['pid']).cmdline())
-                            logging.warning(config.WARNING_MESSAGE.format(p['name'], p['pid'], p['memory_percent'], p['username'], command, p['pid']))
+                            logging.warning(config.WARNING_MESSAGE.format(p['name'], p['pid'], p['memory_percent'], p['username'], command))
                             make_tarfile("/opt/resmon/archives/{0}.tar.gz".format(p['pid']), "/proc/{0}".format(p['pid']))
                             ALREADY_OCCURED = 1
                             OCCURENCE = 0
