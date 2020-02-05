@@ -2,5 +2,9 @@
 Description=ResMon
 
 [Service]
-ExecStart=/opt/resmon/startup/resmon.sh
-Restart=always
+ExecStart=/usr/bin/python3 monitor.py
+WorkingDirectory=/opt/resmon
+User=root
+
+[Install]
+WantedBy=multi-user.target
